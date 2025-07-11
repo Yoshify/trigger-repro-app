@@ -1,19 +1,13 @@
 import { metadata } from "@trigger.dev/sdk/v3";
 
 export class TriggerTestClass {
-  async testAsync() {
-    metadata.root.set('testAsync', true);
-  }
-
-  testSync() {
-    metadata.root.set('testSync', true);
-  }
-
-  testByPassingMetadata(passedMetadata: typeof metadata) {
-    passedMetadata.root.set('testByPassingMetadata', true);
-  }
-
-  testWithCallback(callback: (key: string, value: boolean) => void) {
-    callback('testWithCallback', true);
+  setAs(as: 'self' | 'parent' | 'root', key: string, value: boolean) {
+    if(as === 'self') {
+      metadata.set(key, value);
+    } else if(as === 'parent') {
+      metadata.parent.set(key, value);
+    } else if(as === 'root') {
+      metadata.root.set(key, value);
+    }
   }
 }

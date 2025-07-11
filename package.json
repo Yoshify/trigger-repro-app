@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --raw --kill-others --prefix-colors \"yellow,blue\" bun:dev:*",
-		"dev:trigger": "bunx trigger.dev@4.0.0-v4-beta.22 dev",
-		"dev:next": "next dev --turbopack",
+    "dev": "next dev --turbopack",
+    "dev:trigger": "npx trigger@v4-beta dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
